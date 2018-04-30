@@ -1,0 +1,21 @@
+.content{
+    width: 75%;
+    background: rgb(241, 241, 241);
+    margin: auto;
+    padding: 30px;
+    margin-bottom: 50px;
+}
+h1{
+    text-align: center;
+}
+
+.content img{
+    height: 250px;
+    width: 250px;
+    float: left;
+    margin: 5px;
+}
+
+span{
+    text-align: right;
+}

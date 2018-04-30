@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="well well-sm">
+    <div id="products" class="row list-group">
+      <div class="item  col-xs-4 col-md-3" *ngFor="let hotel of pagedItems">
+        <div class="thumbnail" (click)="show(hotel)">
+          <img class="group list-group-image" style="height: 150px; width: 100%;" src="{{hotel.resort.photo}}" alt="" />
+          <div class="category">
+            <h5 class="category-name">Hotel Name:{{hotel.name}}</h5>
+          </div>
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading">
+              Resort Name: {{hotel.resort.name}}</h4>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+                <p class="lead">
+                 Pay/Day ${{hotel.payForDay}}</p>
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <p class="lead">
+                 {{hotel.hotelCategory}}</p>
+              </div>
+              <div class="btn-group">
+                <a class="btn btn-details" >Details</a>
+                <a class="btn btn-success"  (click)="show()">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+  <div class="pag">
+    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+      <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(1)">First</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+      </li>
+      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+          <a (click)="setPage(page)">{{page}}</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.currentPage + 1)">Next</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.totalPages)">Last</a>
+      </li>
+  </ul>
+  </div>
+</div>

@@ -1,0 +1,1083 @@
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-sm-4">
+        <h1>
+          Admin
+        </h1>
+      </div>
+      <div class="col-lg-8 col-sm-8">
+        <ol class="breadcrumb pull-right">
+          <li>
+            <a href="#">
+              Home
+            </a>
+          </li>         
+          <li class="active">
+            Admin
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<!--breadcrumbs end-->
+
+<!--container start-->
+<div class="component-bg">
+  <div class="container">
+
+    <div class="bs-docs-section">
+      <h1 id="tables" class="page-header">
+        Tables
+      </h1>
+
+      <h2 id="tables-example">
+        Country
+      </h2>     
+      <div class="bs-example">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Name
+            </th>
+            <th>
+              Visa
+            </th>
+            <th>
+              Delete
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let country of countries">
+            <td>
+             <div>
+               <span>{{country.id}}</span>
+             </div>
+            </td>
+            <td >
+              <div (dblclick)="changeObj(country)">
+                <span *ngIf="!country.change"> {{country.name}}</span>
+                <input type="text" *ngIf="country.change" value="{{change.name}}" [(ngModel)]="change.name" (keyup.enter)="saveChangeCountry()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(country)">
+                <span *ngIf="!country.change"> {{country.visa}}</span>
+                <input type="text" *ngIf="country.change" value="{{change.visa}}" [(ngModel)]="change.visa" (keyup.enter)="saveChangeCountry()">
+              </div>
+            </td>
+            <td>
+              <span (click)="deleteCountry(country)">Delete</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              #
+            </td>
+            <td>
+              <input type="text" placeholder="Name" [(ngModel)]="newCountry.name">
+            </td>
+            <td>
+              <input type="text" placeholder="Visa" [(ngModel)]="newCountry.visa">
+            </td>
+            <td>
+              <span (click)="saveCountry()">Save</span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /example -->
+
+
+
+      <h2 id="tables-striped">
+        Flight
+      </h2>
+      <div class="bs-example">
+        <table class="table flight">
+          <thead>
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Type of Transport
+            </th>
+            <th>
+              Start Place
+            </th>
+            <th>
+              End Place
+            </th>
+            <th>
+              Date
+            </th>
+            <th>
+             Travel Time
+            </th>
+            <th>
+              Seats
+            </th>
+            <th>
+              Cost
+            </th>
+            <th>
+              Delete
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let flight of flights">
+            <td>
+              <div>
+                <span>{{flight.id}}</span>
+              </div>
+            </td>
+            <td >
+              <div (dblclick)="changeObj(flight)">
+                <span *ngIf="!flight.change"> {{flight.typeOfTransport}}</span>
+                <input type="text" *ngIf="flight.change" value="{{flight.typeOfTransport}}" [(ngModel)]="change.typeOfTransport" (keyup.enter)="saveChangeFlight()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(flight)">
+                <span *ngIf="!flight.change"> {{flight.startPlace}}</span>
+                <input type="text" *ngIf="flight.change" value="{{flight.startPlace}}" [(ngModel)]="change.startPlace" (keyup.enter)="saveChangeFlight()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(flight)">
+                <span *ngIf="!flight.change"> {{flight.endPlace}}</span>
+                <input type="text" *ngIf="flight.change" value="{{flight.endPlace}}" [(ngModel)]="change.endPlace" (keyup.enter)="saveChangeFlight()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(flight)">
+                <span *ngIf="!flight.change"> {{flight.date}}</span>
+                <input type="text" *ngIf="flight.change" value="{{flight.date}}" [(ngModel)]="change.date" (keyup.enter)="saveChangeFlight()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(flight)">
+                <span *ngIf="!flight.change"> {{flight.travelTime}}</span>
+                <input type="text" *ngIf="flight.change" value="{{flight.travelTime}}" [(ngModel)]="change.travelTime" (keyup.enter)="saveChangeFlight()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(flight)">
+                <span *ngIf="!flight.change"> {{flight.seats}}</span>
+                <input type="text" *ngIf="flight.change" value="{{flight.seats}}" [(ngModel)]="change.seats" (keyup.enter)="saveChangeFlight()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(flight)">
+                <span *ngIf="!flight.change"> {{flight.cost}}</span>
+                <input type="text" *ngIf="flight.change" value="{{flight.cost}}" [(ngModel)]="change.cost" (keyup.enter)="saveChangeFlight()">
+              </div>
+            </td>
+
+            <td>
+              <span (click)="deleteFlight(flight)">Delete</span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bs-example">
+        <table class="table table-condensed">
+          <tr>
+            <td>
+              <input type="text" placeholder="typeOfTransport" [(ngModel)]="newFlight.typeOfTransport">
+            </td>
+            <td>
+              <input type="text" placeholder="startPlace" [(ngModel)]="newFlight.startPlace">
+            </td>
+            <td>
+              <input type="text" placeholder="endPlace" [(ngModel)]="newFlight.endPlace">
+            </td>
+            <td>
+              <input type="text" placeholder="date" [(ngModel)]="newFlight.date">
+            </td>
+            <td>
+              <input type="text" placeholder="travelTime" [(ngModel)]="newFlight.travelTime">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" placeholder="seats" [(ngModel)]="newFlight.seats">
+            </td>
+            <td>
+              <input type="text" placeholder="cost" [(ngModel)]="newFlight.cost">
+            </td>
+            <td>
+              <span (click)="saveFlight()">Save</span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /example -->
+
+
+
+      <h2 id="tables-hover-rows">
+        Client
+      </h2>     
+      <div class="bs-example">
+        <table class="table flight">
+          <thead>
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              PIB
+            </th>
+            <th>
+              Passport
+            </th>
+            <th>
+              Zagran Passport
+            </th>
+            <th>
+              Visa
+            </th>
+            <th>
+              Address
+            </th>
+            <th>
+              Number
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              Delete
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let client of clients">
+            <td>
+              <div>
+                <span>{{client.id}}</span>
+              </div>
+            </td>
+            <td >
+              <div (dblclick)="changeObj(client)">
+                <span *ngIf="!client.change"> {{client.pib}}</span>
+                <input type="text" *ngIf="client.change" value="{{client.pib}}" [(ngModel)]="change.pib" (keyup.enter)="saveChangeClient()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(client)">
+                <span *ngIf="!client.change"> {{client.passport}}</span>
+                <input type="text" *ngIf="client.change" value="{{client.passport}}" [(ngModel)]="change.passport" (keyup.enter)="saveChangeClient()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(client)">
+                <span *ngIf="!client.change"> {{client.zagranPassport}}</span>
+                <input type="text" *ngIf="client.change" value="{{client.zagranPassport}}" [(ngModel)]="change.zagranPassport" (keyup.enter)="saveChangeClient()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(client)">
+                <span *ngIf="!client.change"> {{client.visa}}</span>
+                <input type="text" *ngIf="client.change" value="{{client.visa}}" [(ngModel)]="change.visa" (keyup.enter)="saveChangeClient()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(client)">
+                <span *ngIf="!client.change"> {{client.address}}</span>
+                <input type="text" *ngIf="client.change" value="{{client.address}}" [(ngModel)]="change.address" (keyup.enter)="saveChangeClient()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(client)">
+                <span *ngIf="!client.change"> {{client.number}}</span>
+                <input type="text" *ngIf="client.change" value="{{client.number}}" [(ngModel)]="change.number" (keyup.enter)="saveChangeClient()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(client)">
+                <span *ngIf="!client.change"> {{client.birthday}}</span>
+                <input type="text" *ngIf="client.change" value="{{client.birthday}}" [(ngModel)]="change.birthday" (keyup.enter)="saveChangeClient()">
+              </div>
+            </td>
+
+            <td>
+              <span (click)="deleteClient(client)">Delete</span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bs-example">
+        <table class="table table-condensed">
+          <tr>
+            <td>
+              <input type="text" placeholder="pib" [(ngModel)]="newClient.pib">
+            </td>
+            <td>
+              <input type="text" placeholder="passport" [(ngModel)]="newClient.passport">
+            </td>
+            <td>
+              <input type="text" placeholder="zagranPassport" [(ngModel)]="newClient.zagranPassport">
+            </td>
+            <td>
+              <input type="text" placeholder="visa" [(ngModel)]="newClient.visa">
+            </td>
+            <td>
+              <input type="text" placeholder="address" [(ngModel)]="newClient.address">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" placeholder="number" [(ngModel)]="newClient.number">
+            </td>
+            <td>
+              <input type="text" placeholder="birthday" [(ngModel)]="newClient.birthday">
+            </td>
+            <td>
+              <span (click)="saveClient()">Save</span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /example -->
+
+
+
+      <h2 id="tables-condensed">
+        Resort
+      </h2>      
+      <div class="bs-example">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Name
+            </th>
+            <th>
+              Photo
+            </th>
+            <th>
+              Country
+            </th>
+            <th>
+              Delete
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let resort of resorts">
+            <td>
+              <div>
+                <span>{{resort.id}}</span>
+              </div>
+            </td>
+            <td >
+              <div (dblclick)="changeObj(resort)">
+                <span *ngIf="!resort.change"> {{resort.name}}</span>
+                <input type="text" *ngIf="resort.change" value="{{change.name}}" [(ngModel)]="change.name" (keyup.enter)="saveChangeResort()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(resort)">
+                <img src="{{resort.photo}}" style="height: 50px; width: 50px;" alt="">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(resort)">
+                <span *ngIf="!resort.change"> {{resort.country.name}}</span>
+                <select *ngIf="resort.change" [(ngModel)]="change.country" (change)="saveChangeResort()">
+                  <option *ngFor="let c of countries" [ngValue]="c">{{c.name}}</option>
+                </select>
+                <!--<input type="text" *ngIf="resort.change" value="{{change.photo}}" [(ngModel)]="change.photo" (keyup.enter)="saveChangeResort()">-->
+              </div>
+            </td>
+            <td>
+              <span (click)="deleteResort(resort)">Delete</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              #
+            </td>
+            <td>
+              <input type="text" placeholder="Name" [(ngModel)]="newResort.name">
+            </td>
+            <td>
+              <input type="file" (change)="savePhoto($event)">
+            </td>
+            <td>
+              <select [(ngModel)]="newResort.country">
+                <option *ngFor="let c of countries"  [ngValue]="c">{{c.name}}</option>
+              </select>
+            </td>
+            <td>
+              <span (click)="saveResort()">Save</span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /example -->
+      <h2>
+        Hotel
+      </h2>      
+      <div class="bs-example">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Name
+            </th>
+            <th>
+              Hotel Category
+            </th>
+            <th>
+              Description
+            </th>
+            <th>
+              Pay/Day
+            </th>
+            <th>
+              Resort
+            </th>
+            <th>
+              Delete
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let hotel of hotels">
+            <td>
+              <div>
+                <span>{{hotel.id}}</span>
+              </div>
+            </td>
+            <td >
+              <div (dblclick)="changeObj(hotel)">
+                <span *ngIf="!hotel.change"> {{hotel.name}}</span>
+                <input type="text" *ngIf="hotel.change" value="{{change.name}}" [(ngModel)]="change.name" (keyup.enter)="saveChangeHotel()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(hotel)">
+                <span *ngIf="!hotel.change"> {{hotel.hotelCategory}}</span>
+                <input type="text" *ngIf="hotel.change" value="{{change.hotelCategory}}" [(ngModel)]="change.hotelCategory" (keyup.enter)="saveChangeHotel()">
+              </div>
+            </td>
+            <td>
+            <div (dblclick)="changeObj(hotel)">
+              <span *ngIf="!hotel.change"> {{hotel.description}}</span>
+              <input type="text" *ngIf="hotel.change" value="{{change.description}}" [(ngModel)]="change.description" (keyup.enter)="saveChangeHotel()">
+            </div>
+            </td>
+            <td >
+              <div (dblclick)="changeObj(hotel)">
+                <span *ngIf="!hotel.change"> {{hotel.payForDay}}</span>
+                <input type="text" *ngIf="hotel.change" value="{{change.payForDay}}" [(ngModel)]="change.payForDay" (keyup.enter)="saveChangeHotel()">
+              </div>
+            </td>
+            <td>
+              <div (dblclick)="changeObj(hotel)">
+                <span >{{hotel.resort.name}}</span>
+                <!--<select *ngIf="resort.change" [(ngModel)]="change.resort" (change)="saveChangeHotel()">-->
+                  <!--<option *ngFor="let resort of resorts" [ngValue]="resort">{{resort.name}}</option>-->
+                <!--</select>-->
+                <!--<input type="text" *ngIf="resort.change" value="{{change.photo}}" [(ngModel)]="change.photo" (keyup.enter)="saveChangeResort()">-->
+              </div>
+            </td>
+            <td>
+              <span (click)="deleteHotel(hotel)">Delete</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              #
+            </td>
+            <td>
+              <input type="text" placeholder="Name" [(ngModel)]="newHotel.name">
+            </td>
+            <td>
+              <input type="text" placeholder="Hotel Category" [(ngModel)]="newHotel.hotelCategory">
+            </td>
+            <td>
+              <input type="text" placeholder="Descroption" [(ngModel)]="newHotel.description">
+            </td>
+            <td>
+              <input type="number" placeholder="Pay/Day" [(ngModel)]="newHotel.payForDay">
+            </td>
+            <td>
+              <select [(ngModel)]="newHotel.resort">
+                <option *ngFor="let resort of resorts" [ngValue]="resort">{{resort.name}}</option>
+              </select>
+            </td>
+            <td>
+              <span (click)="saveHotel()">Save</span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>
+        Pass
+      </h2>      
+      <div class="bs-example">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Transport
+            </th>
+            <th>
+              Client
+            </th>
+            <th>
+              Flight
+            </th>
+            <th>
+              Country
+            </th>
+            <th>
+              Resort
+            </th>
+            <th>
+              Hotel
+            </th>
+            <th>
+              Delete
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let pass of passes">
+            <td>
+              <div>
+                <span>{{pass.id}}</span>
+              </div>
+            </td>
+            <td>{{pass.transport}}</td>
+            <td>{{pass.client.pib}}</td>
+            <td>{{pass.flight.date}}</td>
+            <td>{{pass.country.name}}</td>
+            <td>{{pass.resort.name}}</td>
+            <td>{{pass.hotel.name}}</td>
+            <td>
+              <span (click)="deletePass(pass)">Delete</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              #
+            </td>
+            <td>
+              <input type="text" placeholder="Transport" [(ngModel)]="newPass.transport">
+            </td>
+            <td>
+              <select [(ngModel)]="newPass.client">
+                <option *ngFor="let clients of clients" [ngValue]="clients">{{clients.pib}}</option>
+              </select>
+            </td>
+            <td>
+              <select [(ngModel)]="newPass.flight">
+                <option *ngFor="let flight of flights"  [ngValue]="flight">{{flight.date}}</option>
+              </select>
+            </td>
+            <td>
+              <select [(ngModel)]="newPass.country">
+                <option *ngFor="let c of countries"  [ngValue]="c">{{c.name}}</option>
+              </select>
+            </td>
+            <td>
+              <select [(ngModel)]="newPass.resort">
+                <option *ngFor="let resort of resorts" [ngValue]="resort">{{resort.name}}</option>
+              </select>
+            </td>
+            <td>
+              <select [(ngModel)]="newPass.hotel">
+                <option *ngFor="let hotel of hotels"  [ngValue]="hotel">{{hotel.name}}</option>
+              </select>
+            </td>
+            <td>
+              <span (click)="savePass()">Save</span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+
+      <h2 id="tables-contextual-classes">
+        Contextual classes
+      </h2>      
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <colgroup>
+            <col class="col-xs-1">
+            <col class="col-xs-7">
+          </colgroup>
+          <thead>
+          <tr>
+            <th>
+              Class
+            </th>
+            <th>
+              Description
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+              <code>
+                .active
+              </code>
+            </td>
+            <td>
+              Applies the hover color to a particular row or cell
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>
+                .success
+              </code>
+            </td>
+            <td>
+              Indicates a successful or positive action
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>
+                .info
+              </code>
+            </td>
+            <td>
+              Indicates a neutral informative change or action
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>
+                .warning
+              </code>
+            </td>
+            <td>
+              Indicates a warning that might need attention
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>
+                .danger
+              </code>
+            </td>
+            <td>
+              Indicates a dangerous or potentially negative action
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bs-example">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Column heading
+            </th>
+            <th>
+              Column heading
+            </th>
+            <th>
+              Column heading
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="active">
+            <td>
+              1
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+          </tr>
+          <tr>
+            <td>
+              2
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+          </tr>
+          <tr class="success">
+            <td>
+              3
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+          </tr>
+          <tr>
+            <td>
+              4
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+          </tr>
+          <tr class="info">
+            <td>
+              5
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+          </tr>
+          <tr>
+            <td>
+              6
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+          </tr>
+          <tr class="warning">
+            <td>
+              7
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+          </tr>
+          <tr>
+            <td>
+              8
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+          </tr>
+          <tr class="danger">
+            <td>
+              9
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+            <td>
+              Column content
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /example -->
+
+
+
+      <h2 id="tables-responsive">
+        Responsive tables
+      </h2>
+      <p>
+        Create responsive tables by wrapping any
+        <code>
+          .table
+        </code>
+        in
+        <code>
+          .table-responsive
+        </code>
+        to make them scroll horizontally up to small devices (under 768px). When viewing on anything larger than 768px wide, you will not see any difference in these tables.
+      </p>
+      <div class="bs-example mar-b-30">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>
+                #
+              </th>
+              <th>
+                Table heading
+              </th>
+              <th>
+                Table heading
+              </th>
+              <th>
+                Table heading
+              </th>
+              <th>
+                Table heading
+              </th>
+              <th>
+                Table heading
+              </th>
+              <th>
+                Table heading
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>
+                1
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+            </tr>
+            <tr>
+              <td>
+                2
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+            </tr>
+            <tr>
+              <td>
+                3
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.table-responsive -->
+
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th>
+                #
+              </th>
+              <th>
+                Table heading
+              </th>
+              <th>
+                Table heading
+              </th>
+              <th>
+                Table heading
+              </th>
+              <th>
+                Table heading
+              </th>
+              <th>
+                Table heading
+              </th>
+              <th>
+                Table heading
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>
+                1
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+            </tr>
+            <tr>
+              <td>
+                2
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+            </tr>
+            <tr>
+              <td>
+                3
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+              <td>
+                Table cell
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /example -->
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,266 @@
+<div class="content">
+  <h1>{{currentHotel.name}}</h1>
+  <img [src]="currentHotel.resort.photo" alt="">
+  <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempus vulputate nisi, vel auctor est lobortis quis. Maecenas imperdiet lorem eu purus scelerisque, vitae posuere nibh sagittis. Suspendisse potenti. Praesent ac purus mattis, iaculis lectus in, sodales magna. Integer rutrum nec purus sit amet porta. Donec pharetra pharetra ornare. Pellentesque egestas ante ut ligula scelerisque, nec interdum diam feugiat. Praesent sodales ultrices arcu sit amet feugiat. Nam hendrerit sapien malesuada, ultrices urna efficitur, lacinia diam. Phasellus dapibus odio eget quam dapibus venenatis. Etiam non ex urna. Donec in ante vel magna gravida consequat. Donec bibendum diam mattis, cursus mi eget, rutrum lorem. Morbi nisi nisi, venenatis vel sapien eget, lacinia euismod ipsum.
+
+    In non vehicula dolor, posuere interdum est. Donec efficitur posuere enim eget bibendum. Ut volutpat erat quis justo efficitur tempus. Fusce faucibus tempus convallis. Nullam sit amet lectus arcu. Fusce porta eros id arcu varius suscipit. Nulla elementum, tortor pellentesque auctor dignissim, nisi ex sodales neque, et sollicitudin arcu sapien id elit. Curabitur placerat dui nec ex consectetur, sed dapibus urna porttitor. Aenean sapien nunc, ultrices ut molestie sed, rhoncus eu tortor.
+    
+    In hac habitasse platea dictumst. Integer laoreet a eros quis consectetur. Integer vitae libero faucibus, eleifend neque vitae, varius est. Nunc consequat elit nec lectus viverra, sit amet consequat ligula porttitor. Quisque efficitur sodales libero, accumsan euismod elit. Curabitur semper pretium urna, eu interdum nunc blandit viverra. Ut id mi dapibus, porta tortor in, pellentesque arcu. Aenean scelerisque euismod diam non rutrum. Integer laoreet velit id purus euismod faucibus. Etiam malesuada lorem dignissim ante imperdiet, ornare malesuada quam pretium. In eget lorem tellus. Fusce vel urna faucibus, congue purus vel, ultricies quam. Nullam nec faucibus quam. Etiam faucibus et elit at euismod. Proin convallis finibus dolor, vel posuere magna pharetra commodo. Integer faucibus non velit finibus pulvinar.
+    
+    Donec at blandit eros. Mauris vehicula dui in dolor facilisis auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent id ipsum odio. Donec sodales, ante fringilla pharetra facilisis, elit eros volutpat ante, id porttitor neque nulla nec ligula. Nam laoreet, leo ut venenatis tristique, dolor ante porta justo, sed pellentesque sem nisi a dui. Praesent facilisis, turpis et dapibus suscipit, ex tortor pharetra lorem, sed faucibus urna felis a neque.
+    
+    Sed felis nulla, tempus ut molestie non, euismod vel leo. Cras bibendum elit at odio ullamcorper viverra. Donec suscipit diam in aliquet convallis. Suspendisse facilisis metus eget urna tincidunt facilisis. Sed molestie leo augue, vitae eleifend nibh tempor eget. Suspendisse rhoncus magna eget quam varius semper. Praesent pulvinar at orci ut tempor.</span>
+    
+    <h1>You can go to this hotel these days: </h1>
+
+    <h2 id="tables-striped">
+      Flight
+    </h2>
+    <div class="bs-example">
+      <table class="table flight">
+        <thead>
+        <tr>
+          <th>
+            #
+          </th>
+          <th>
+            Type of Transport
+          </th>
+          <th>
+            Start Place
+          </th>
+          <th>
+            End Place
+          </th>
+          <th>
+            Date
+          </th>
+          <th>
+           Travel Time
+          </th>
+          <th>
+            Seats
+          </th>
+          <th>
+            Cost
+          </th>
+          <th>
+            Select
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let flight of flights">
+          <td>
+            <div>
+              <span>{{flight.id}}</span>
+            </div>
+          </td>
+          <td >
+            <div>
+              <span *ngIf="!flight.change"> {{flight.typeOfTransport}}</span>
+            </div>
+          </td>
+          <td>
+            <div>
+              <span *ngIf="!flight.change"> {{flight.startPlace}}</span>              
+            </div>
+          </td>
+          <td>
+            <div>
+              <span *ngIf="!flight.change"> {{flight.endPlace}}</span>            
+            </div>
+          </td>
+          <td>
+            <div >
+              <span *ngIf="!flight.change"> {{flight.date}}</span>
+            </div>
+          </td>
+          <td>
+            <div>
+              <span *ngIf="!flight.change"> {{flight.travelTime}}</span>            
+            </div>
+          </td>
+          <td>
+            <div>
+              <span *ngIf="!flight.change"> {{flight.seats}}</span>            
+            </div>
+          </td>
+          <td>
+            <div>
+              <span *ngIf="!flight.change"> {{flight.cost}}</span>              
+            </div>
+          </td>
+          <td>
+            <input type="checkbox" (change)="selectFlight(flight)">
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div *ngIf="showClient">
+    <h1>If you want to relax in this hotel, book a trip</h1>
+    <h2 id="tables-hover-rows">
+      Client
+    </h2>
+    <div class="bs-example">
+      <table class="table flight">
+        <thead>
+        <tr>
+          <th>
+            PIB
+          </th>
+          <th>
+            Passport
+          </th>
+          <th>
+            Zagran Passport
+          </th>
+          <th>
+            Visa
+          </th>
+          <th>
+            Address
+          </th>
+          <th>
+            Number
+          </th>
+          <th>
+            Birthday
+          </th>
+        </tr>
+        </thead>
+        <tbody *ngIf="client">
+        <tr>
+          <td >
+            <div (dblclick)="changeObj()">
+              <span *ngIf="!client.change"> {{client.pib}}</span>
+              <input type="text" *ngIf="client.change" value="{{client.pib}}" [(ngModel)]="client.pib" (keyup.enter)="saveChangeClient()">
+            </div>
+          </td>
+          <td>
+            <div (dblclick)="changeObj()">
+              <span *ngIf="!client.change"> {{client.passport}}</span>
+              <input type="text" *ngIf="client.change" value="{{client.passport}}" [(ngModel)]="client.passport" (keyup.enter)="saveChangeClient()">
+            </div>
+          </td>
+          <td>
+            <div (dblclick)="changeObj()">
+              <span *ngIf="!client.change"> {{client.zagranPassport}}</span>
+              <input type="text" *ngIf="client.change" value="{{client.zagranPassport}}" [(ngModel)]="client.zagranPassport" (keyup.enter)="saveChangeClient()">
+            </div>
+          </td>
+          <td>
+            <div (dblclick)="changeObj()">
+              <span *ngIf="!client.change"> {{client.visa}}</span>
+              <input type="text" *ngIf="client.change" value="{{client.visa}}" [(ngModel)]="client.visa" (keyup.enter)="saveChangeClient()">
+            </div>
+          </td>
+          <td>
+            <div (dblclick)="changeObj()">
+              <span *ngIf="!client.change"> {{client.address}}</span>
+              <input type="text" *ngIf="client.change" value="{{client.address}}" [(ngModel)]="client.address" (keyup.enter)="saveChangeClient()">
+            </div>
+          </td>
+          <td>
+            <div (dblclick)="changeObj()">
+              <span *ngIf="!client.change"> {{client.number}}</span>
+              <input type="text" *ngIf="client.change" value="{{client.number}}" [(ngModel)]="client.number" (keyup.enter)="saveChangeClient()">
+            </div>
+          </td>
+          <td>
+            <div (dblclick)="changeObj()">
+              <span *ngIf="!client.change"> {{client.birthday}}</span>
+              <input type="text" *ngIf="client.change" value="{{client.birthday}}" [(ngModel)]="client.birthday" (keyup.enter)="saveChangeClient()">
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bs-example" *ngIf="client == null">
+      <table class="table table-condensed">
+        <tr>
+          <td>
+            <input type="text" placeholder="pib" [(ngModel)]="newClient.pib">
+          </td>
+          <td>
+            <input type="text" placeholder="passport" [(ngModel)]="newClient.passport">
+          </td>
+          <td>
+            <input type="text" placeholder="zagranPassport" [(ngModel)]="newClient.zagranPassport">
+          </td>
+          <td>
+            <input type="text" placeholder="visa" [(ngModel)]="newClient.visa">
+          </td>
+          <td>
+            <input type="text" placeholder="address" [(ngModel)]="newClient.address">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="number" placeholder="number" [(ngModel)]="newClient.number">
+          </td>
+          <td>
+            <input type="text" placeholder="birthday" [(ngModel)]="newClient.birthday">
+          </td>
+          <td>
+            <span (click)="saveClient()">Save</span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+    <div *ngIf="showPass">
+    <h2>
+      Pass
+    </h2>
+    <div class="bs-example">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>
+            Transport
+          </th>
+          <th>
+            Client
+          </th>
+          <th>
+            Flight
+          </th>
+          <th>
+            Country
+          </th>
+          <th>
+            Resort
+          </th>
+          <th>
+            Hotel
+          </th>
+          <th>
+            Delete
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{pass.flight.typeOfTransport}}</td>
+          <td>{{pass.client.pib}}</td>
+          <td>{{pass.flight.date}}</td>
+          <td>{{pass.flight.endPlace}}</td>
+          <td>{{pass.resort.name}}</td>
+          <td>{{pass.hotel.name}}</td>
+          <td>
+            <span (click)="deletePass(pass)">Delete</span>
+          </td>
+        </tr>      
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
